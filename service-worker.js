@@ -1,4 +1,4 @@
-const CACHE = 'jyc-2026-v5-schedule-links';
+const CACHE = 'jyc-2026-v6-sunday-activity-fix';
 const CORE = ['./', './index.html', './script.js', './manifest.webmanifest', './assets/icon-192.png', './assets/icon-512.png', './assets/badge.png', './assets/map.png', './assets/adventurer.png', './assets/pathfinder.png', './assets/mit.png', './assets/staff.jpg', './assets/camp-sketch.png', './assets/camp-banner.gif', './assets/banner.png'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE).then(cache => Promise.allSettled(CORE.map(url => cache.add(url))))); self.skipWaiting(); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))); self.clients.claim(); });

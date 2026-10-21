@@ -20,7 +20,18 @@ const clubSessions={"0-4":{"adventurer":{"when":"Friday · 13:30–16:30","activ
 const clubActivityKeys=new Set(['0-4','1-4','1-8','1-13','2-7']);
 let lastProgramTrigger=null;
 function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function renderDay(n){document.querySelectorAll('[data-day]').forEach(b=>{let on=Number(b.dataset.day)===n;b.classList.toggle('active',on);b.setAttribute('aria-selected',on)});document.getElementById('schedule').innerHTML=days[n].map(([time,name,detail],i)=>{let key=`${n}-${i}`;let hasDetail=!!programDetails[key]||clubActivityKeys.has(key);return `<article class="slot${hasDetail?' slot-clickable':''}" ${hasDetail?`data-program-key="${key}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(name)}"`:''}><div class="time">${escapeHtml(time)}</div><div><h3>${escapeHtml(name)}</h3>${detail?`<p>${escapeHtml(detail)}</p>`:''}${hasDetail?`<span class="slot-view">${clubSessions[key] ? (key==='1-4'?'View Sabbath School & Club Activities 1 →':'View club activities & materials →') : 'View full program & participants →'}</span>`:''}</div></article>`}).join('')}
+function renderDay(n){
+  document.querySelectorAll('[data-day]').forEach(b=>{const on=Number(b.dataset.day)===n;b.classList.toggle('active',on);b.setAttribute('aria-selected',on)});
+  document.getElementById('schedule').innerHTML=days[n].map(([time,name,detail],i)=>{
+    const key=`${n}-${i}`;
+    // Sunday: club activity link belongs to 07:30–10:30, never Lunch Preparation.
+    const isSundayLunch=n===2&&name==='Lunch Preparation';
+    const isSundayClubs=n===2&&name==='Club Activities'&&time==='07:30–10:30';
+    const hasDetail=!isSundayLunch&&(isSundayClubs||!!programDetails[key]||clubActivityKeys.has(key));
+    const label=isSundayClubs?'View club activities & materials →':clubSessions[key]?(key==='1-4'?'View Sabbath School & Club Activities 1 →':'View club activities & materials →'):'View full program & participants →';
+    return `<article class="slot${hasDetail?' slot-clickable':''}" ${hasDetail?`data-program-key="${key}" tabindex="0" role="button" aria-label="View details for ${escapeHtml(name)}"`:''}><div class="time">${escapeHtml(time)}</div><div><h3>${escapeHtml(name)}</h3>${detail?`<p>${escapeHtml(detail)}</p>`:''}${hasDetail?`<span class="slot-view">${label}</span>`:''}</div></article>`;
+  }).join('');
+}
 const clubNames={adventurer:'Adventurer',pathfinder:'Pathfinder',master:'Master Guide / MIT'};
 const clubBadges={adventurer:'assets/adventurer.png',pathfinder:'assets/pathfinder.png',master:'assets/mit.png'};
 let activeProgramKey=null;
