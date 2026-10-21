@@ -137,6 +137,49 @@ body{background:#f7f8f7;color:#18324a}
 .program-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;padding:13px 2px;border-bottom:1px solid #e4eaf0;font-size:14px;line-height:1.45}
 .program-row strong{color:#17334d}.program-row span{color:#486278}.program-pdf{margin-top:20px}.program-pdf a,.program-link{color:#075b9a;font-weight:800;text-decoration:underline}
 @media(max-width:520px){.program-modal{padding:0;align-items:end}.program-panel{max-height:94dvh;border-radius:18px 18px 0 0}.program-row{grid-template-columns:1fr;gap:3px}.program-modal-content{padding:14px 17px 30px}}
+
+/* v0.2.8 — accessibility, visual polish and mobile refinements */
+html,body{max-width:100%;overflow-x:clip}
+.section.alt#staff{background:#f2f6f8;color:#18324a}
+#staff .staffwrap p{color:#40566e;line-height:1.75}
+#staff .staffwrap strong{color:#173451;font-weight:800}
+#staff .staffwrap h2{color:#102c55}
+#staff .secondary{border-color:#c8d6df;color:#173651;background:#fff}
+#discover .feature{padding:26px;min-width:0;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+#discover .feature p{color:#40566e}
+#discover .feature h3{color:#102c55}
+#discover .feature:hover{transform:translateY(-3px);box-shadow:0 12px 28px #08172e1f;border-color:#b7cbd9}
+#discover .feature:focus-visible{outline:3px solid #1b5fc6;outline-offset:3px}
+#activities .club ul{color:#40566e;line-height:1.8}
+#activities .club{padding:22px;overflow-wrap:anywhere}
+#activities .clubgrid{align-items:stretch}
+.links a.navcta,.links a.navcta:link,.links a.navcta:visited,.links a.navcta:hover,.links a.navcta:focus-visible{color:#102a43!important;-webkit-text-fill-color:#102a43!important}
+.welcome{padding-block:38px 43px}
+.welcome p{color:#40566e}
+.section .head p{color:#40566e}
+#program .head p{color:#e0e9f2}
+#program .slot{overflow-wrap:anywhere}
+#program .slot-clickable{transition:transform .15s ease,box-shadow .15s ease}
+#program .slot-clickable:focus-visible{outline:3px solid #f5bd44;outline-offset:2px}
+.download{min-width:0}
+.download>div{min-width:0}
+.download h3,.download p{overflow-wrap:anywhere}
+@media(max-width:760px){
+ .welcome{padding-block:28px 32px}
+ .welcome-actions{flex-wrap:wrap}
+ .welcome-actions a{min-width:0}
+ .staffwrap h2{font-size:clamp(30px,8vw,44px)!important}
+ #activities .club{padding:18px}
+ .download{flex-wrap:wrap}
+ .download a{max-width:100%}
+ .quick a{min-width:0}
+}
+@media(max-width:380px){
+ .brand-title{font-size:11px}
+ .brand-title small{font-size:8px;letter-spacing:.6px}
+ #activities .tabs .tab{overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce){#discover .feature,#program .slot-clickable{transition:none}#discover .feature:hover{transform:none}}
 </style></head><body>
 <header class="nav"><div class="wrap navin"><a class="brand" href="#home"><img src="assets/badge.png" alt="Junior Youth Camp badge"><div class="brand-title">JUNIOR YOUTH CAMP<small>CZ2 · 2026 DIGITAL COMPANION</small></div></a><nav class="links" id="links"><a href="#program">Program</a><a href="#activities">Activities</a><a href="#map">Camp Map</a><a href="#staff">Camp Staff</a><a href="#song">Theme Song</a><a href="#resources">Downloads</a><a class="navcta" href="#program">View Schedule ↗</a></nav><button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button></div></header>
 <main><section class="hero" id="home" aria-label="Official Junior Youth Camp 2026 banner"><video class="hero-banner" autoplay muted loop playsinline preload="metadata" poster="assets/camp-banner.gif" aria-label="Junior Youth Camp 2026 event banner"><source src="assets/video-banner.mp4" type="video/mp4"><img src="assets/camp-banner.gif" alt="Junior Youth Camp 2026 official banner"></video></section>
