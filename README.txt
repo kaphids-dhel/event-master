@@ -1,0 +1,1 @@
+JYC 2026 update: Removed Accident & Liability Waiver download card from Camp Resources. Official Program download and other sections retained. Replace index.html, script.js and service-worker.js in repository root.
