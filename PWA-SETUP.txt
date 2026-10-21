@@ -1,0 +1,2 @@
+JYC 2026 PWA
+Upload all contents of this folder to the ROOT of GitHub repository event-master. Keep index.html and manifest.webmanifest at root. GitHub Pages must be enabled. The app can be added to Home Screen in Android Chrome or iOS Safari. Offline: core HTML, script, images are cached after first visit; PDFs and videos require internet unless downloaded separately. For updates, change CACHE version in service-worker.js. Existing files in this package are based on v0.2.8 plus the provided polished HTML. If your live GitHub site has newer edits, compare before replacing.

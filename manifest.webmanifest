@@ -1,0 +1,25 @@
+{
+  "name": "Junior Youth Camp 2026 \u2014 Forward in Faith",
+  "short_name": "JYC 2026",
+  "description": "CZ2 Junior Youth Camp digital companion",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08172e",
+  "theme_color": "#08172e",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
